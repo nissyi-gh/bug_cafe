@@ -19,7 +19,6 @@ def take_order(menus)
   menus.each.with_index(1) do |menu, i|
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
-  print '>'
   order_number = gets_order_number(menus.size)
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   order_number
@@ -31,6 +30,7 @@ def gets_order_number(order_index_max)
 
   until valid_order_numbers.include?(order_number)
     puts "1から#{order_index_max}のいずれかの数値を入力してください。"
+    print '>'
     order_number = gets.to_i
   end
 
