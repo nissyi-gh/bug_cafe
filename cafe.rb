@@ -20,10 +20,22 @@ def take_order(menus)
     puts "(#{i})#{menu[:name]}: #{menu[:price]}円"
   end
   print '>'
-  # 配列のindexとメニュー番号のずれをマイナスする
-  order_number = gets.to_i - 1
+  order_number = gets_order_number(menus.size)
   puts "#{menus[order_number][:name]}(#{menus[order_number][:price]}円)ですね。"
   order_number
+end
+
+def gets_order_number(order_index_max)
+  order_number = 0
+  valid_order_numbers = (1..order_index_max).to_a
+
+  until valid_order_numbers.include?(order_number)
+    puts "1から#{order_index_max}のいずれかの数値を入力してください。"
+    order_number = gets.to_i
+  end
+
+  # 配列のindexとメニュー番号のずれをマイナスする
+  order_number - 1
 end
 
 puts 'bugカフェへようこそ！ご注文は？ 番号でどうぞ'
