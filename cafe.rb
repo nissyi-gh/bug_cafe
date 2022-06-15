@@ -39,10 +39,10 @@ def gets_order_number(order_index_max)
 end
 
 puts 'bugカフェへようこそ！ご注文は？ 番号でどうぞ'
-order1 = take_order(DRINKS)
+drink_order = take_order(DRINKS)
 
 puts 'フードメニューはいかがですか?'
-order2 = take_order(FOODS)
+food_order = take_order(FOODS)
 
-total = DRINKS[order1][:price] + FOODS[order2][:price]
+total = DRINKS[drink_order][:price] + FOODS[food_order][:price]
 puts "お会計は#{total}円になります。ありがとうございました！"
